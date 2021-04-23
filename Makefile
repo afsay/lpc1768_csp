@@ -1,6 +1,6 @@
 OBJS += \
 ./obj/clock.o \
-./obj/main.o
+./obj/test.o
 
 all: liblpc_1768.a
 
