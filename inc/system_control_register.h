@@ -1,16 +1,45 @@
 #include "bits.h"
 
 typedef struct {
-    unsigned int pad_arr0[80];
+    volatile unsigned int FLASHCFG; //Flash Accelerator Configuration Register. Controls flash access timing. See Table 49. R/W 0x303A 0x400F C000
+    unsigned int pad_arr0[15];
+    volatile unsigned int MEMMAP; //Memory Mapping Control register R/W 0 0x400F C040
+    unsigned int pad_arr1[15];
+    volatile unsigned int PLL0CON; //PLL0 Control Register R/W 0 0x400F C080
+    volatile unsigned int PLL0CFG; //PLL0 Configuration Register R/W 0 0x400F C084
+    volatile unsigned int PLL0STAT; //PLL0 Status Register RO 0 0x400F C088
+    volatile unsigned int PLL0FEED; //PLL0 Feed Register WO NA 0x400F C08C
+    unsigned int pad_arr2[4];
+    volatile unsigned int PLL1CON; //PLL1 Control Register R/W 0 0x400F C0A0
+    volatile unsigned int PLL1CFG; //PLL1 Configuration Register R/W 0 0x400F C0A4
+    volatile unsigned int PLL1STAT; //PLL1 Status Register RO 0 0x400F C0A8
+    volatile unsigned int PLL1FEED; //PLL1 Feed Register WO NA 0x400F C0AC
+    unsigned int pad_arr3[4];
+    volatile unsigned int PCON; //Power Control Register R/W 0 0x400F C0C0
+    volatile unsigned int PCONP; //Power Control for Peripherals Register R/W 0x03BE 0x400F C0C4
+    unsigned int pad_arr4[15];
+    volatile unsigned int CLKCFG; //CPU Clock Configuration Register R/W 0 0x400F C104
+    volatile unsigned int USBCLKCFG; //USB Clock Configuration Register R/W 0 0x400F C108
+    volatile unsigned int CLKSRCSEL; //Clock Source Select Register R/W 0 0x400F C10C
+    volatile unsigned int CANSLEEPCLR; //Allows clearing the current CAN channel sleep state as well as R/W reading that state. R/W 0 0x400F C110
+    volatile unsigned int CANWAKEFLAGS; //Allows reading the wake-up state of the CAN channels. R/W 0 0x400F C114
+    unsigned int pad_arr5[10];
     volatile unsigned int EXTINT; //External Interrupt Flag Register R/W 0 0x400F C140
     volatile unsigned int pad0;
     volatile unsigned int EXTMODE; //External Interrupt Mode register R/W 0 0x400F C148
     volatile unsigned int EXTPOLAR; //External Interrupt Polarity Register R/W 0 0x400F C14C
-    unsigned int pad_arr1[52];;
+    unsigned int pad_arr6[12];;
     volatile unsigned int RSID; //Reset Source Identification Register R/W 0x400F C180
-    unsigned int pad_arr2[32];
+    unsigned int pad_arr7[7];
     volatile unsigned int SCS; //System Control and Status R/W 0 0x400F C1A0
-} System_control_REG;
+    unsigned int pad_1;
+    volatile unsigned int PCLKSEL0; //Peripheral Clock Selection register 0. R/W 0 0x400F C1A8
+    volatile unsigned int PCLKSEL1; //Peripheral Clock Selection register 1. R/W 0 0x400F C1AC
+    unsigned int pad_arr8[4];
+    volatile unsigned int USBIntSt; //USB Interrupt Status R/W 0x8000 0000 0x400F C1C0
+    volatile unsigned int DMAREQSEL; //Selects between UART and timer DMA requests on channels 8 through 15 R/W 0 0x400F C1C4
+    volatile unsigned int CLKOUTCFG;//Clock Output Configuration Register R/W 0 0x400F C1C8
+} System_control_REG; //System_control_BASE	0x400FC000
 
 typedef enum OSCRANGE {MHz_1_to_20 = 0, MHz_15_to_25 = 1} OSCRANGE;
 

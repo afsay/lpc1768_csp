@@ -5,7 +5,7 @@ OBJS = \
 DIRS = obj lib
 
 directories:  
-	mkdir $(DIRS)
+	mkdir -p $(DIRS)
 
 all: directories liblpc_1768.a
 
