@@ -1,8 +1,13 @@
-OBJS += \
+OBJS = \
 ./obj/clock.o \
 ./obj/test.o
 
-all: liblpc_1768.a
+DIRS = obj lib
+
+directories:  
+	mkdir $(DIRS)
+
+all: directories liblpc_1768.a
 
 obj/%.o: ./src/%.c
 	@echo 'Building file: $<'
@@ -19,4 +24,4 @@ liblpc_1768.a: $(OBJS)
 	@echo ' '
 
 clean:
-	rm obj/* lib/*
+	rm -rf obj lib
