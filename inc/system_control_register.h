@@ -42,6 +42,7 @@ typedef struct {
 } System_control_REG; //System_control_BASE	0x400FC000
 
 typedef enum OSCRANGE {MHz_1_to_20 = 0, MHz_15_to_25 = 1} OSCRANGE;
+typedef enum PLL0SOURCE {SELECT_IRC = 0x0, SELECT_MAIN_OSC = 0x1, SELECT_RTC = 0x2} PLL0SOURCE;
 
 #define EXTINT_EINT0_MASK BIT0
 #define EXTINT_EINT1_MASK BIT1
@@ -72,3 +73,9 @@ typedef enum OSCRANGE {MHz_1_to_20 = 0, MHz_15_to_25 = 1} OSCRANGE;
 #define SCS_OSCRANGE_BIT_INDEX 4
 #define SCS_OSCEN_BIT_INDEX 5
 #define SCS_OSCSTAT_BIT_INDEX 6
+
+#define PLL0_ENABLE_MASK BIT0
+#define PLL0_ENABLED_MASK BIT24
+#define PLL0_CONNECT_MASK BIT1
+#define PLL0_CONNECTED_MASK BIT25
+

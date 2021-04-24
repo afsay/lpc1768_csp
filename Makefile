@@ -4,9 +4,6 @@ OBJS = \
 
 DIRS = obj lib
 
-directories:  
-	mkdir -p $(DIRS)
-
 all: directories liblpc_1768.a
 
 obj/%.o: ./src/%.c
@@ -25,3 +22,8 @@ liblpc_1768.a: $(OBJS)
 
 clean:
 	rm -rf obj lib
+
+.PHONY: directories
+
+directories:  
+	-mkdir -p $(DIRS)
