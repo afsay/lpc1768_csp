@@ -18,7 +18,7 @@ typedef struct {
     volatile unsigned int PCON; //Power Control Register R/W 0 0x400F C0C0
     volatile unsigned int PCONP; //Power Control for Peripherals Register R/W 0x03BE 0x400F C0C4
     unsigned int pad_arr4[15];
-    volatile unsigned int CLKCFG; //CPU Clock Configuration Register R/W 0 0x400F C104
+    volatile unsigned int CCLKCFG; //CPU Clock Configuration Register R/W 0 0x400F C104
     volatile unsigned int USBCLKCFG; //USB Clock Configuration Register R/W 0 0x400F C108
     volatile unsigned int CLKSRCSEL; //Clock Source Select Register R/W 0 0x400F C10C
     volatile unsigned int CANSLEEPCLR; //Allows clearing the current CAN channel sleep state as well as R/W reading that state. R/W 0 0x400F C110

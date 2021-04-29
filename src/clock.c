@@ -153,3 +153,12 @@ void feed_sequence_PLL0(void){
     SYSCTL->PLL0FEED = PLL0FEED_1;
     SYSCTL->PLL0FEED = PLL0FEED_2;
 }
+
+/*
+    7:0 CCLKSEL
+        Selects the divide value for creating the CPU clock (CCLK)
+        from the PLL0 output.
+*/
+void set_clock_divide(unsigned int value){
+    SYSCTL->CCLKCFG = value & 0x000000FF;
+}
