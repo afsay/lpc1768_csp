@@ -1,0 +1,14 @@
+This is a Chip Support Package for LPC1768 microcontroller using ARM Cortex-M3 core.
+
+Currently included:
+    System Control Register is mapped to address space.
+    Most clock control functions
+    CMSIS include files related to Cortex-M3
+
+In-progress:
+    Power control functions.
+
+Next in-progress:
+    Nested Vector Interupt Controller
+    Timer
+    
