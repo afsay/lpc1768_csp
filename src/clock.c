@@ -1,5 +1,6 @@
-#include "peripherals_address_map.h"
 #include <stdbool.h>
+
+#include "peripherals_address_map.h"
 
 /*
     4-OSCRANGE

@@ -1,5 +1,8 @@
 This is a Chip Support Package for LPC1768 microcontroller using ARM Cortex-M3 core.
 
+Run following command to create test.elf:
+    $make test
+
 Currently included:
     System Control Register is mapped to address space.
     Most clock control functions

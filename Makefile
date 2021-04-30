@@ -1,6 +1,5 @@
 OBJS = \
-./obj/clock.o \
-./obj/test.o
+./obj/clock.o 
 
 DIRS = obj lib
 
@@ -16,10 +15,13 @@ obj/%.o: ./src/%.c
 liblpc_1768.a: $(OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC Archiver'
-	arm-none-eabi-ar -r  "lib/liblpc_chip_175x_6x.a" $(OBJS)
+	arm-none-eabi-ar -r  "lib/liblpc_1768.a" $(OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
+test: liblpc_1768.a 
+	@echo 'Building test program'
+	arm-none-eabi-gcc -nostdlib -I"./inc" -L"./lib" -mcpu=cortex-m3 -mthumb test/test.c -nostartfiles -T test/test.ld -o test/test.elf -llpc_1768
 clean:
 	rm -rf obj lib
 
